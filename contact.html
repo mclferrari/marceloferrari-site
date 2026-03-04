@@ -15,13 +15,19 @@
         <img class="logo" src="img/logo.png" alt="Marcelo Ferrari" />
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" id="siteNav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Work</a>
         <a class="active" href="contact.html">Contact</a>
       </nav>
 
-      <a class="btn btn-primary" href="mailto:contact@marceloferrari.co.uk">Email</a>
+      <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end;">
+        <button class="btn btn-ghost menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+          <span class="burger"><span></span></span>
+          Menu
+        </button>
+        <a class="btn btn-primary" href="mailto:contact@marceloferrari.co.uk">Email</a>
+      </div>
     </div>
   </header>
 
@@ -34,7 +40,7 @@
           <p>
             The quickest way is email. Whether it’s a new piece, a repair, or a restoration, send a few photos and any details you have —
             I’ll reply with the next steps and a clear quote.
-            </p>
+          </p>
 
           <div class="card" style="margin-top:14px;">
             <p style="margin:0 0 10px;">
@@ -46,11 +52,7 @@
               <strong style="color:#f3f3f3;">Instagram</strong><br>
               <a href="https://instagram.com/marcelo_ferrari_setting" target="_blank" rel="noreferrer">@marcelo_ferrari_setting</a>
             </p>
-          </div>
-
-          <p class="small" style="margin-top:12px;">
-            (We can add a contact form once domain email authentication is fully settled.)
-          </p>
+          </div>          
         </div>
 
         <div class="card">
@@ -78,10 +80,32 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-<script>
+  <!-- Mobile menu toggle -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("siteNav");
+    if(menuBtn && nav){
+      menuBtn.addEventListener("click", ()=>{
+        const open = nav.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      document.addEventListener("click", (e)=>{
+        if(!nav.classList.contains("open")) return;
+        const clickedInside = nav.contains(e.target) || menuBtn.contains(e.target);
+        if(!clickedInside){
+          nav.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded","false");
+        }
+      });
+    }
+  </script>
+
+  <!-- Scroll reveal -->
+  <script>
     const revealEls = document.querySelectorAll(".section, .hero, .site-footer");
     revealEls.forEach(el => el.classList.add("reveal"));
-  
+
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
@@ -90,7 +114,7 @@
         }
       });
     }, { threshold: 0.12 });
-  
+
     revealEls.forEach(el => io.observe(el));
   </script>
 </body>

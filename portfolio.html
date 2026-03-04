@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work | Marcelo Ferrari</title>
-  <meta name="description" content="Recent stone setting and jewellery restoration work by Marcelo Ferrari." />
+  <title>Selected Work | Marcelo Ferrari</title>
+  <meta name="description" content="Selected stone setting, laser repair and jewellery restoration work by Marcelo Ferrari in Bristol, UK." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -15,45 +15,49 @@
         <img class="logo" src="img/logo.png" alt="Marcelo Ferrari" />
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" id="siteNav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a class="active" href="portfolio.html">Work</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <a class="btn btn-primary" href="contact.html">Enquire</a>
+      <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end;">
+        <button class="btn btn-ghost menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+          <span class="burger"><span></span></span>
+          Menu
+        </button>
+        <a class="btn btn-primary" href="contact.html">Enquire</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="section">
       <div class="container">
-        <p class="eyebrow">Portfolio</p>
-        <h1>Craft & Detail</h1>
-            <p>A collection of stone setting, repairs and restoration work.</p>
+        <div class="section-head">
+          <h1 style="margin:0 0 10px;">Selected Work</h1>
+          <p>Stone setting, laser repairs and jewellery restoration — a small selection of finished work and close-up details.</p>
+        </div>
 
         <div class="gallery">
+          <!-- Add as many as you want. Make sure filenames match EXACTLY -->
+          <a href="img/work-01.jpg"><img src="img/work-01.jpg" alt="Work 01" loading="lazy"></a>
+          <a href="img/work-02.jpg"><img src="img/work-02.jpg" alt="Work 02" loading="lazy"></a>
+          <a href="img/work-03.jpg"><img src="img/work-03.jpg" alt="Work 03" loading="lazy"></a>
+          <a href="img/work-04.jpg"><img src="img/work-04.jpg" alt="Work 04" loading="lazy"></a>
+          <a href="img/work-05.jpg"><img src="img/work-05.jpg" alt="Work 05" loading="lazy"></a>
+          <a href="img/work-06.jpg"><img src="img/work-06.jpg" alt="Work 06" loading="lazy"></a>
+          <a href="img/work-07.jpg"><img src="img/work-07.jpg" alt="Work 07" loading="lazy"></a>
+          <a href="img/work-08.jpg"><img src="img/work-08.jpg" alt="Work 08" loading="lazy"></a>
+          <a href="img/work-09.jpg"><img src="img/work-09.jpg" alt="Work 09" loading="lazy"></a>
 
-            <a href="img/work-01.jpg"><img src="img/work-01.jpg"></a>
-            <a href="img/work-02.jpg"><img src="img/work-02.jpg"></a>
-            <a href="img/work-03.jpg"><img src="img/work-03.jpg"></a>
-            <a href="img/work-04.jpg"><img src="img/work-04.jpg"></a>
-            <a href="img/work-05.jpg"><img src="img/work-05.jpg"></a>
-            <a href="img/work-06.jpg"><img src="img/work-06.jpg"></a>
-            <a href="img/work-07.jpg"><img src="img/work-07.jpg"></a>
-            <a href="img/work-08.jpg"><img src="img/work-08.jpg"></a>
-            <a href="img/work-09.jpg"><img src="img/work-09.jpg"></a>
-            <a href="img/work-10.jpg"><img src="img/work-10.jpg"></a>
-            <a href="img/work-11.jpg"><img src="img/work-11.jpg"></a>
-            <a href="img/work-12.jpg"><img src="img/work-12.jpg"></a>
-            <a href="img/work-13.jpg"><img src="img/work-13.jpg"></a>
-            <a href="img/work-14.jpg"><img src="img/work-14.jpg"></a>
-            <a href="img/work-15.jpg"><img src="img/work-15.jpg"></a>
-            
-            </div>
-
-        <div style="margin-top:18px;">
-          <a class="btn btn-ghost" href="contact.html">Request a quote →</a>
+          <!-- Example extra images (rename to your real files) -->
+          <a href="img/work-10.jpg"><img src="img/work-10.jpg" alt="Work 10" loading="lazy"></a>
+          <a href="img/work-11.jpg"><img src="img/work-11.jpg" alt="Work 11" loading="lazy"></a>
+          <a href="img/work-12.jpg"><img src="img/work-12.jpg" alt="Work 12" loading="lazy"></a>
+          <a href="img/work-13.jpg"><img src="img/work-13.jpg" alt="Work 13" loading="lazy"></a>
+          <a href="img/work-14.jpg"><img src="img/work-14.jpg" alt="Work 14" loading="lazy"></a>
+          <a href="img/work-15.jpg"><img src="img/work-15.jpg" alt="Work 15" loading="lazy"></a>
         </div>
       </div>
     </section>
@@ -69,12 +73,34 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  
+
+  <!-- Mobile menu toggle -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("siteNav");
+    if(menuBtn && nav){
+      menuBtn.addEventListener("click", ()=>{
+        const open = nav.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      document.addEventListener("click", (e)=>{
+        if(!nav.classList.contains("open")) return;
+        const clickedInside = nav.contains(e.target) || menuBtn.contains(e.target);
+        if(!clickedInside){
+          nav.classList.remove("open");
+          menuBtn.setAttribute("aria-expanded","false");
+        }
+      });
+    }
+  </script>
+
+  <!-- Lightbox (fade + ESC) -->
   <script>
     document.querySelectorAll(".gallery a").forEach(link=>{
       link.addEventListener("click",function(e){
         e.preventDefault();
-    
+
         const overlay=document.createElement("div");
         overlay.style.position="fixed";
         overlay.style.inset="0";
@@ -85,36 +111,35 @@
         overlay.style.zIndex="9999";
         overlay.style.opacity="0";
         overlay.style.transition="opacity .25s ease";
-    
+
         const img=document.createElement("img");
         img.src=this.href;
-        img.style.maxWidth="90%";
-        img.style.maxHeight="90%";
+        img.style.maxWidth="92%";
+        img.style.maxHeight="92%";
         img.style.borderRadius="10px";
         img.style.boxShadow="0 20px 50px rgba(0,0,0,.7)";
-    
+
         overlay.appendChild(img);
-    
         document.body.appendChild(overlay);
-    
         setTimeout(()=>overlay.style.opacity="1",10);
-    
+
         overlay.addEventListener("click",()=>overlay.remove());
-    
-        document.addEventListener("keydown",function esc(e){
-          if(e.key==="Escape"){
+
+        document.addEventListener("keydown",function esc(ev){
+          if(ev.key==="Escape"){
             overlay.remove();
             document.removeEventListener("keydown",esc);
           }
         });
       });
     });
-    </script>  
+  </script>
 
-<script>
+  <!-- Scroll reveal -->
+  <script>
     const revealEls = document.querySelectorAll(".section, .hero, .site-footer");
     revealEls.forEach(el => el.classList.add("reveal"));
-  
+
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
@@ -123,7 +148,7 @@
         }
       });
     }, { threshold: 0.12 });
-  
+
     revealEls.forEach(el => io.observe(el));
   </script>
 </body>
