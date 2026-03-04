@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Marcelo Ferrari</title>
+  <meta name="description" content="Contact Marcelo Ferrari for stone setting, laser repairs, restoration and finishing." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Marcelo Ferrari Home">
+        <img class="logo" src="img/logo.png" alt="Marcelo Ferrari" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Work</a>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="mailto:contact@marceloferrari.co.uk">Email</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h1>Let’s talk</h1>
+          <p>
+            The quickest way is email. Whether it’s a new piece, a repair, or a restoration, send a few photos and any details you have —
+            I’ll reply with the next steps and a clear quote.
+            </p>
+
+          <div class="card" style="margin-top:14px;">
+            <p style="margin:0 0 10px;">
+              <strong style="color:#f3f3f3;">Email</strong><br>
+              <a href="mailto:contact@marceloferrari.co.uk">contact@marceloferrari.co.uk</a>
+            </p>
+
+            <p style="margin:0;">
+              <strong style="color:#f3f3f3;">Instagram</strong><br>
+              <a href="https://instagram.com/marcelo_ferrari_setting" target="_blank" rel="noreferrer">@marcelo_ferrari_setting</a>
+            </p>
+          </div>
+
+          <p class="small" style="margin-top:12px;">
+            (We can add a contact form once domain email authentication is fully settled.)
+          </p>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-top:0;">Helpful details</h2>
+          <ul class="ticks">
+            <li>Type of setting / repair needed</li>
+            <li>Metal type (9/14/18ct, platinum, etc.)</li>
+            <li>Stone sizes and shapes</li>
+            <li>Deadline and delivery method</li>
+            <li>Photos or a short video</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Marcelo Ferrari. All rights reserved.</p>
+      <p class="small">Bristol, UK</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+<script>
+    const revealEls = document.querySelectorAll(".section, .hero, .site-footer");
+    revealEls.forEach(el => el.classList.add("reveal"));
+  
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+  
+    revealEls.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

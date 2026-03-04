@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work | Marcelo Ferrari</title>
+  <meta name="description" content="Recent stone setting and jewellery restoration work by Marcelo Ferrari." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Marcelo Ferrari Home">
+        <img class="logo" src="img/logo.png" alt="Marcelo Ferrari" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a class="active" href="portfolio.html">Work</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="contact.html">Enquire</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Portfolio</p>
+        <h1>Craft & Detail</h1>
+            <p>A collection of stone setting, repairs and restoration work.</p>
+
+        <div class="gallery">
+
+            <a href="img/work-01.jpg"><img src="img/work-01.jpg"></a>
+            <a href="img/work-02.jpg"><img src="img/work-02.jpg"></a>
+            <a href="img/work-03.jpg"><img src="img/work-03.jpg"></a>
+            <a href="img/work-04.jpg"><img src="img/work-04.jpg"></a>
+            <a href="img/work-05.jpg"><img src="img/work-05.jpg"></a>
+            <a href="img/work-06.jpg"><img src="img/work-06.jpg"></a>
+            <a href="img/work-07.jpg"><img src="img/work-07.jpg"></a>
+            <a href="img/work-08.jpg"><img src="img/work-08.jpg"></a>
+            <a href="img/work-09.jpg"><img src="img/work-09.jpg"></a>
+            <a href="img/work-10.jpg"><img src="img/work-10.jpg"></a>
+            <a href="img/work-11.jpg"><img src="img/work-11.jpg"></a>
+            <a href="img/work-12.jpg"><img src="img/work-12.jpg"></a>
+            <a href="img/work-13.jpg"><img src="img/work-13.jpg"></a>
+            <a href="img/work-14.jpg"><img src="img/work-14.jpg"></a>
+            <a href="img/work-15.jpg"><img src="img/work-15.jpg"></a>
+            
+            </div>
+
+        <div style="margin-top:18px;">
+          <a class="btn btn-ghost" href="contact.html">Request a quote →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Marcelo Ferrari. All rights reserved.</p>
+      <p class="small">Bristol, UK</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  
+  <script>
+    document.querySelectorAll(".gallery a").forEach(link=>{
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+    
+        const overlay=document.createElement("div");
+        overlay.style.position="fixed";
+        overlay.style.inset="0";
+        overlay.style.background="rgba(0,0,0,.92)";
+        overlay.style.display="flex";
+        overlay.style.alignItems="center";
+        overlay.style.justifyContent="center";
+        overlay.style.zIndex="9999";
+        overlay.style.opacity="0";
+        overlay.style.transition="opacity .25s ease";
+    
+        const img=document.createElement("img");
+        img.src=this.href;
+        img.style.maxWidth="90%";
+        img.style.maxHeight="90%";
+        img.style.borderRadius="10px";
+        img.style.boxShadow="0 20px 50px rgba(0,0,0,.7)";
+    
+        overlay.appendChild(img);
+    
+        document.body.appendChild(overlay);
+    
+        setTimeout(()=>overlay.style.opacity="1",10);
+    
+        overlay.addEventListener("click",()=>overlay.remove());
+    
+        document.addEventListener("keydown",function esc(e){
+          if(e.key==="Escape"){
+            overlay.remove();
+            document.removeEventListener("keydown",esc);
+          }
+        });
+      });
+    });
+    </script>  
+
+<script>
+    const revealEls = document.querySelectorAll(".section, .hero, .site-footer");
+    revealEls.forEach(el => el.classList.add("reveal"));
+  
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("in-view");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+  
+    revealEls.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
