@@ -9,7 +9,7 @@
   
     /* Global image tone: less bright / less glossy */
     --img-brightness: .90;
-    --img-contrast: 1.03;
+    --img-contrast: 1.02;
     --img-sat: .90;
   }
   
@@ -274,46 +274,60 @@
   .section-head{ margin-bottom: 18px; }
   
   /* Recent work (homepage) */
-  .work-grid{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-top: 16px;
-  }
-  
-  .work-card{
-    border-radius: 16px;
-    overflow:hidden;
-    border: 1px solid rgba(42,42,46,.9);
-    background: rgba(18,18,20,.7);
-    box-shadow: var(--shadow);
-    display:block;
-    transform: translateY(0);
-    transition: transform .18s ease, border-color .18s ease;
-  }
-  .work-card:hover{
-    transform: translateY(-2px);
-    border-color: rgba(215,192,138,.35);
-    text-decoration:none;
-  }
-  
-  .work-img{
-    aspect-ratio: 1 / 1; /* square */
-    background: rgba(18,18,20,.65);
-  }
-  .work-img img{
-    width:100%;
-    height:100%;
-    object-fit: cover;
-    display:block;
-    will-change: transform, filter;
-    transition: transform .45s ease, filter .45s ease;
-    filter: brightness(var(--img-brightness)) contrast(var(--img-contrast)) saturate(var(--img-sat));
-  }
-  .work-card:hover .work-img img{
-    transform: scale(1.06);
-    filter: brightness(calc(var(--img-brightness) + .06)) contrast(1.08) saturate(1);
-  }
+  /* ===== Home: Selected work (refined tiles) ===== */
+.work-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns desktop */
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.work-card{
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(18,18,20,.6);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  display:block;
+  transform: translateY(0);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.work-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(215,192,138,.30);
+  box-shadow: 0 14px 34px rgba(0,0,0,.42);
+  text-decoration:none;
+}
+
+.work-img{
+  aspect-ratio: 1 / 1; /* square */
+  background: rgba(18,18,20,.65);
+}
+
+.work-img img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1);
+  transition: transform .35s ease, filter .35s ease;
+  filter:
+    brightness(var(--img-brightness))
+    contrast(var(--img-contrast))
+    saturate(var(--img-sat));
+}
+
+.work-card:hover .work-img img{
+  transform: scale(1.05);
+  filter:
+    brightness(calc(var(--img-brightness) + .05))
+    contrast(1.05)
+    saturate(.98);
+}
+
+/* Remove any captions if they still exist */
+.work-cap{ display:none; }
   
   .work-cap{
     display:none;
@@ -353,16 +367,22 @@
   }
   .gallery img{
     width:100%;
-    height: 240px;
+    height: 220px;           /* slightly smaller = refined */
     object-fit: cover;
     display:block;
-    transform: scale(1);
     transition: transform .25s ease, filter .25s ease;
-    filter: brightness(var(--img-brightness)) contrast(var(--img-contrast)) saturate(var(--img-sat));
+    filter:
+      brightness(var(--img-brightness))
+      contrast(var(--img-contrast))
+      saturate(var(--img-sat));
   }
+  
   .gallery a:hover img{
-    transform: scale(1.04);
-    filter: brightness(calc(var(--img-brightness) + .06)) contrast(1.08) saturate(1);
+    transform: scale(1.03);
+    filter:
+      brightness(calc(var(--img-brightness) + .05))
+      contrast(1.05)
+      saturate(.98);
   }
   
   /* Two column */
@@ -488,7 +508,7 @@
       gap: 10px;
     }
     .gallery img{
-      height: 170px; /* MUCH smaller than before */
+      height: 160px; /* MUCH smaller than before */
     }
   
     .hero{ padding: 64px 0; min-height: 64vh; }
