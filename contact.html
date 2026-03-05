@@ -48,24 +48,72 @@
             I’ll reply with the next steps and a clear quote.
           </p>
 
-          <div class="card" style="margin-top:14px;">
+          <div class="card contact-card" style="margin-top:14px;">
 
-            <p style="margin:0 0 6px;">
-              <strong style="color:#f3f3f3;">Email</strong>
+            <p class="eyebrow">Enquiry form</p>
+            <h2 style="margin:0 0 10px;">Send a message</h2>
+            <p style="margin-bottom:16px;">
+              Tell me about the piece, stone size, metal type, and deadline.
+              I’ll reply with the next steps and a clear quote.
             </p>
           
-            <div class="copy-row" style="margin-bottom:14px;">
-              <a id="emailText" href="mailto:contact@marceloferrari.co.uk">
-                contact@marceloferrari.co.uk
-              </a>
+            <form action="https://formspree.io/f/xpqyader" method="POST" class="contact-form">
           
-              <button class="btn btn-ghost" id="copyEmail">
-                Copy
+              <input type="hidden" name="_subject" value="New enquiry from marceloferrari.co.uk">
+          
+              <div class="form-grid">
+          
+                <label class="field">
+                  <span class="field-label">Name</span>
+                  <input type="text" name="name" required placeholder="Your name">
+                </label>
+          
+                <label class="field">
+                  <span class="field-label">Email</span>
+                  <input type="email" name="email" required placeholder="you@email.com">
+                </label>
+          
+                <label class="field">
+                  <span class="field-label">Service</span>
+                  <select name="service">
+                    <option selected disabled>Select service</option>
+                    <option>Stone setting</option>
+                    <option>Jewellery repair</option>
+                    <option>Laser work</option>
+                    <option>Polishing / finishing</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+          
+                <label class="field">
+                  <span class="field-label">Metal</span>
+                  <select name="metal">
+                    <option selected>Not sure</option>
+                    <option>9ct gold</option>
+                    <option>14ct gold</option>
+                    <option>18ct gold</option>
+                    <option>Platinum</option>
+                    <option>Silver</option>
+                  </select>
+                </label>
+          
+              </div>
+          
+              <label class="field">
+                <span class="field-label">Message</span>
+                <textarea name="message" rows="6" required
+                placeholder="Describe the job, stone size, shape, deadline, etc."></textarea>
+              </label>
+          
+              <button class="btn btn-primary" type="submit">
+                Send enquiry
               </button>
-            </div>
           
-            <p style="margin:0;">
-              <strong style="color:#f3f3f3;">Instagram</strong><br>
+            </form>
+          
+            <p style="margin-top:18px;">
+              Prefer direct contact?<br>
+              <a href="mailto:contact@marceloferrari.co.uk">contact@marceloferrari.co.uk</a><br>
               <a href="https://instagram.com/marcelo_ferrari_setting" target="_blank" rel="noreferrer">
                 @marcelo_ferrari_setting
               </a>
