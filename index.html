@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stone Setter & Jewellery Restoration in Bristol | Marcelo Ferrari</title>
   <meta name="description" content="Stone setter and jewellery restoration specialist in Bristol. Expert stone setting, laser jewellery repair and restoration services by Marcelo Ferrari." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -213,6 +219,16 @@
     }, { threshold: 0.12 });
 
     revealEls.forEach(el => io.observe(el));
+  </script>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script>
+    const btn = document.querySelector('.back-to-top');
+    const toggleBtn = () => btn.classList.toggle('show', window.scrollY > 500);
+    window.addEventListener('scroll', toggleBtn);
+    toggleBtn();
+  
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>
 </html>

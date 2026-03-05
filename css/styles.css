@@ -16,7 +16,7 @@
   *{ box-sizing:border-box; }
   html,body{ margin:0; padding:0; }
   body{
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     background: var(--bg);
     color:var(--text);
   }
@@ -153,6 +153,7 @@
   
   /* Typography */
   h1{
+    font-family: "Cormorant Garamond", Georgia, serif;
     font-size: clamp(34px, 5vw, 62px);
     line-height:1.05;
     margin: 0 0 14px;
@@ -160,6 +161,7 @@
     font-weight: 600;
   }
   h2{
+    font-family: "Cormorant Garamond", Georgia, serif;
     margin:0 0 10px;
     font-size: 28px;
     letter-spacing: -0.2px;
@@ -177,6 +179,55 @@
     margin: 0 0 12px;
   }
   
+  /* ===== Micro luxury polish ===== */
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2{
+  text-wrap: balance;
+}
+
+.section{
+  padding: 64px 0; /* slightly more breathable */
+}
+
+.card{
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(18,18,20,.78), rgba(18,18,20,.62));
+}
+
+/* Slightly more elegant nav links */
+.nav a{
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
+
+/* Gallery: a touch more “gallery-like” */
+.gallery{
+  gap: 20px;
+}
+
+.gallery a{
+  border-radius: 18px;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.gallery a:hover{
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+}
+
+.gallery img{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform .25s ease, filter .25s ease;
+}
+
   /* Hero */
   .hero{
     min-height: 72vh;
@@ -329,18 +380,7 @@
 /* Remove any captions if they still exist */
 .work-cap{ display:none; }
   
-  .work-cap{
-    display:none;
-    padding: 10px 12px 12px;
-    color: rgba(243,243,243,.78);
-    font-size: 13px;
-    letter-spacing: .35px;
-    display:flex;
-    gap:8px;
-    align-items:center;
-  }
-  .dot{ opacity:.7; }
-  
+ 
   /* Portfolio gallery */
   .gallery{
     display:grid;
@@ -520,3 +560,48 @@
     .gallery{ grid-template-columns: 1fr; }
     .gallery img{ height: 180px; }
   }
+
+  .back-to-top{
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(215,192,138,.35);
+    background: rgba(18,18,20,.85);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .back-to-top.show{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .back-to-top:hover{
+    background: rgba(215,192,138,.14);
+  }
+
+  .copy-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  /* Copy email button improvement */
+.copy-row .btn{
+  border: 1px solid rgba(215,192,138,.45);
+  background: rgba(215,192,138,.10);
+  color: var(--text);
+}
+
+.copy-row .btn:hover{
+  background: rgba(215,192,138,.22);
+  border-color: rgba(215,192,138,.65);
+}

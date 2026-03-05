@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Marcelo Ferrari</title>
   <meta name="description" content="Contact Marcelo Ferrari for stone setting, laser repairs, restoration and finishing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -43,17 +49,30 @@
           </p>
 
           <div class="card" style="margin-top:14px;">
-            <p style="margin:0 0 10px;">
-              <strong style="color:#f3f3f3;">Email</strong><br>
-              <a href="mailto:contact@marceloferrari.co.uk">contact@marceloferrari.co.uk</a>
-            </p>
 
+            <p style="margin:0 0 6px;">
+              <strong style="color:#f3f3f3;">Email</strong>
+            </p>
+          
+            <div class="copy-row" style="margin-bottom:14px;">
+              <a id="emailText" href="mailto:contact@marceloferrari.co.uk">
+                contact@marceloferrari.co.uk
+              </a>
+          
+              <button class="btn btn-ghost" id="copyEmail">
+                Copy
+              </button>
+            </div>
+          
             <p style="margin:0;">
               <strong style="color:#f3f3f3;">Instagram</strong><br>
-              <a href="https://instagram.com/marcelo_ferrari_setting" target="_blank" rel="noreferrer">@marcelo_ferrari_setting</a>
+              <a href="https://instagram.com/marcelo_ferrari_setting" target="_blank" rel="noreferrer">
+                @marcelo_ferrari_setting
+              </a>
             </p>
-          </div>          
-        </div>
+          
+          </div>
+          </div>
 
         <div class="card">
           <h2 style="margin-top:0;">Helpful details</h2>
@@ -117,5 +136,36 @@
 
     revealEls.forEach(el => io.observe(el));
   </script>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script>
+    const btn = document.querySelector('.back-to-top');
+    const toggleBtn = () => btn.classList.toggle('show', window.scrollY > 500);
+    window.addEventListener('scroll', toggleBtn);
+    toggleBtn();
+  
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+  <script>
+    const copyBtn = document.getElementById("copyEmail");
+    
+    if(copyBtn){
+      const email = document.getElementById("emailText").textContent;
+    
+      copyBtn.addEventListener("click", async () => {
+        try{
+          await navigator.clipboard.writeText(email);
+          copyBtn.textContent = "Copied ✓";
+    
+          setTimeout(() => {
+            copyBtn.textContent = "Copy";
+          }, 1200);
+    
+        } catch(e){
+          alert("Copy failed. Please copy manually.");
+        }
+      });
+    }
+    </script>
 </body>
 </html>
