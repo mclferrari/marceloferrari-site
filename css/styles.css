@@ -762,3 +762,42 @@ h1,h2{
   transform: scale(1.3);
   transform-origin: left center;
 }
+
+/* --- Brand sizing: big on desktop, compact on mobile --- */
+
+/* Desktop: keep your “30% larger” look */
+.brand{
+  transform: scale(1.3);
+  transform-origin: left center;
+}
+
+/* Make sure brand can shrink inside the header grid */
+.brand{ min-width: 0; }
+.brand-text{ min-width: 0; }
+.brand-name{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Mobile: reduce brand scale so it never hits the menu button */
+@media (max-width: 520px){
+  .brand{
+    transform: scale(1);          /* was 1.3 */
+  }
+
+  .brand{
+    gap: 10px;
+    height: 74px;                /* slightly smaller than 90px */
+  }
+
+  .brand-name{
+    font-size: 16px;             /* smaller */
+  }
+
+  .brand-sub{
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* Give the menu button a little breathing room */
+  .menu-btn{
+    padding: 10px 12px;
+  }
+}
