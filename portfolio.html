@@ -6,11 +6,8 @@
   <title>Selected Work | Marcelo Ferrari</title>
   <meta name="description" content="Selected stone setting, laser repair and jewellery restoration work by Marcelo Ferrari in Bristol, UK." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -31,7 +28,7 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end;">
+      <div class="header-actions">
         <button class="btn btn-ghost menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
           <span class="burger"><span></span></span>
           Menu
@@ -50,7 +47,6 @@
         </div>
 
         <div class="gallery">
-          <!-- Add as many as you want. Make sure filenames match EXACTLY -->
           <a href="img/work-01a.jpg"><img src="img/work-01a.jpg" alt="Work 01" loading="lazy"></a>
           <a href="img/work-02a.jpg"><img src="img/work-02a.jpg" alt="Work 02" loading="lazy"></a>
           <a href="img/work-03a.jpg"><img src="img/work-03a.jpg" alt="Work 03" loading="lazy"></a>
@@ -60,7 +56,6 @@
           <a href="img/work-07a.jpg"><img src="img/work-07a.jpg" alt="Work 07" loading="lazy"></a>
           <a href="img/work-08a.jpg"><img src="img/work-08a.jpg" alt="Work 08" loading="lazy"></a>
           <a href="img/work-09a.jpg"><img src="img/work-09a.jpg" alt="Work 09" loading="lazy"></a>
-        
           <a href="img/work-10a.jpg"><img src="img/work-10a.jpg" alt="Work 10" loading="lazy"></a>
           <a href="img/work-11a.jpg"><img src="img/work-11a.jpg" alt="Work 11" loading="lazy"></a>
           <a href="img/work-12a.jpg"><img src="img/work-12a.jpg" alt="Work 12" loading="lazy"></a>
@@ -83,7 +78,6 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-  <!-- Mobile menu toggle -->
   <script>
     const menuBtn = document.getElementById("menuBtn");
     const nav = document.getElementById("siteNav");
@@ -104,7 +98,6 @@
     }
   </script>
 
-  <!-- Lightbox (fade + ESC) -->
   <script>
     document.querySelectorAll(".gallery a").forEach(link=>{
       link.addEventListener("click",function(e){
@@ -144,7 +137,6 @@
     });
   </script>
 
-  <!-- Scroll reveal -->
   <script>
     const revealEls = document.querySelectorAll(".section, .hero, .site-footer");
     revealEls.forEach(el => el.classList.add("reveal"));
@@ -160,6 +152,7 @@
 
     revealEls.forEach(el => io.observe(el));
   </script>
+
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
   <script>
@@ -167,7 +160,7 @@
     const toggleBtn = () => btn.classList.toggle('show', window.scrollY > 500);
     window.addEventListener('scroll', toggleBtn);
     toggleBtn();
-  
+
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>

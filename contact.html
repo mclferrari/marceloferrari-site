@@ -6,11 +6,8 @@
   <title>Contact | Marcelo Ferrari</title>
   <meta name="description" content="Contact Marcelo Ferrari for stone setting, laser repairs, restoration and finishing." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -31,7 +28,7 @@
         <a class="active" href="contact.html">Contact</a>
       </nav>
 
-      <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end;">
+      <div class="header-actions">
         <button class="btn btn-ghost menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
           <span class="burger"><span></span></span>
           Menu
@@ -53,30 +50,27 @@
           </p>
 
           <div class="card contact-card" style="margin-top:14px;">
-
             <p class="eyebrow">Enquiry form</p>
             <h2 style="margin:0 0 10px;">Send a message</h2>
             <p style="margin-bottom:16px;">
               Tell me about the piece, stone size, metal type, and deadline.
               I’ll reply with the next steps and a clear quote.
             </p>
-          
+
             <form action="https://formspree.io/f/xpqyader" method="POST" class="contact-form">
-          
               <input type="hidden" name="_subject" value="New enquiry from marceloferrari.co.uk">
-          
+
               <div class="form-grid">
-          
                 <label class="field">
                   <span class="field-label">Name</span>
                   <input type="text" name="name" required placeholder="Your name">
                 </label>
-          
+
                 <label class="field">
                   <span class="field-label">Email</span>
                   <input type="email" name="email" required placeholder="you@email.com">
                 </label>
-          
+
                 <label class="field">
                   <span class="field-label">Service</span>
                   <select name="service">
@@ -88,7 +82,7 @@
                     <option>Other</option>
                   </select>
                 </label>
-          
+
                 <label class="field">
                   <span class="field-label">Metal</span>
                   <select name="metal">
@@ -100,21 +94,18 @@
                     <option>Silver</option>
                   </select>
                 </label>
-          
               </div>
-          
+
               <label class="field">
                 <span class="field-label">Message</span>
-                <textarea name="message" rows="6" required
-                placeholder="Describe the job, stone size, shape, deadline, etc."></textarea>
+                <textarea name="message" rows="6" required placeholder="Describe the job, stone size, shape, deadline, etc."></textarea>
               </label>
-          
+
               <button class="btn btn-primary" type="submit">
                 Send enquiry
               </button>
-          
             </form>
-          
+
             <p style="margin-top:18px;">
               Prefer direct contact?<br>
               <a href="mailto:contact@marceloferrari.co.uk">contact@marceloferrari.co.uk</a><br>
@@ -122,9 +113,8 @@
                 @marcelo_ferrari_setting
               </a>
             </p>
-          
           </div>
-          </div>
+        </div>
 
         <div class="card">
           <h2 style="margin-top:0;">Helpful details</h2>
@@ -151,7 +141,6 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
-  <!-- Mobile menu toggle -->
   <script>
     const menuBtn = document.getElementById("menuBtn");
     const nav = document.getElementById("siteNav");
@@ -172,7 +161,6 @@
     }
   </script>
 
-  <!-- Scroll reveal -->
   <script>
     const revealEls = document.querySelectorAll(".section, .hero, .site-footer");
     revealEls.forEach(el => el.classList.add("reveal"));
@@ -188,6 +176,7 @@
 
     revealEls.forEach(el => io.observe(el));
   </script>
+
   <button class="back-to-top" aria-label="Back to top">↑</button>
 
   <script>
@@ -195,29 +184,30 @@
     const toggleBtn = () => btn.classList.toggle('show', window.scrollY > 500);
     window.addEventListener('scroll', toggleBtn);
     toggleBtn();
-  
+
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
+
   <script>
     const copyBtn = document.getElementById("copyEmail");
-    
+
     if(copyBtn){
       const email = document.getElementById("emailText").textContent;
-    
+
       copyBtn.addEventListener("click", async () => {
         try{
           await navigator.clipboard.writeText(email);
           copyBtn.textContent = "Copied ✓";
-    
+
           setTimeout(() => {
             copyBtn.textContent = "Copy";
           }, 1200);
-    
+
         } catch(e){
           alert("Copy failed. Please copy manually.");
         }
       });
     }
-    </script>
+  </script>
 </body>
 </html>
